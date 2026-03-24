@@ -1,6 +1,8 @@
 # Claude Discord Bot
 
-> Created by **[zhuxi](https://github.com/zhuxi-czx)** · [zhuxi.czx@gmail.com](mailto:zhuxi.czx@gmail.com)
+> **Claude Code Bridge Series** by [zhuxi](https://github.com/zhuxi-czx) — Bridge Claude Code to any platform
+>
+> [WeChat](https://github.com/zhuxi-czx/claude_wechat_bot) · [Telegram](https://github.com/zhuxi-czx/claude_telegram_bot) · [**Discord**](https://github.com/zhuxi-czx/claude_discord_bot)
 
 Bridge [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) CLI to Discord — AI assistant in your Discord server.
 
