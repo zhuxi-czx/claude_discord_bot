@@ -155,10 +155,11 @@ export class BotController {
       this.activeQuerySessions.delete(userId);
       log.error(`Claude query failed for ${msg.author.tag}:`, err);
       const errMsg = err instanceof Error ? err.message : String(err);
+      log.error(`Error detail: ${errMsg}`);
       const userMsg = !errMsg || errMsg === "undefined"
-        ? "Claude processing timed out. Please try a simpler question."
-        : errMsg.slice(0, 200);
-      await msg.reply(`Sorry, an error occurred: ${userMsg}`).catch(() => {});
+        ? "Claude CLI failed to respond. Try running `claude -p \"hi\"` in terminal to verify it works."
+        : errMsg.slice(0, 400);
+      await msg.reply(`Error: ${userMsg}`).catch(() => {});
     }
   }
 
