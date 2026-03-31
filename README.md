@@ -89,6 +89,9 @@ kill $(pgrep -f "tsx src/cli.ts")
 | `/budget 2.0` | Set max budget per query (USD) |
 | `/system <text>` | Set system prompt |
 | `/system clear` | Clear system prompt |
+| `/project` | Show current project directory |
+| `/project <path>` | Set Claude's working directory to a project |
+| `/project clear` | Clear project directory |
 | `/stop` | Abort current query |
 | `/reset` | Clear conversation history |
 | `/help` | Show all commands |
@@ -103,6 +106,7 @@ Edit `.env` file:
 | `CLAUDE_MODEL` | `sonnet` | Model: `opus` / `sonnet` / `haiku` |
 | `CLAUDE_SYSTEM_PROMPT` | - | Custom system prompt |
 | `CLAUDE_MAX_BUDGET` | `1.0` | Max cost per query (USD) |
+| `CLAUDE_WORKING_DIR` | - | Project directory for Claude to work in |
 | `CLAUDE_PERMISSION_MODE` | `default` | Claude CLI permission mode |
 | `CLAUDE_TIMEOUT_MS` | `600000` | Query timeout (ms, default 10 min) |
 | `CLAUDE_MAX_CONCURRENT` | `3` | Max concurrent Claude processes |
@@ -117,6 +121,7 @@ Edit `.env` file:
 4. Replies stream back with real-time message editing
 5. Image attachments are downloaded and passed to Claude for analysis
 6. Per-user sessions maintained via `--resume` for multi-turn conversations
+7. Project directory configurable via `.env` or `/project` command — Claude runs as if started from that directory
 
 ## Related Projects
 
