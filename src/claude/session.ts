@@ -30,4 +30,10 @@ export class SessionManager {
   clearSession(userId: string): void {
     this.store.clearSession(userId);
   }
+
+  clearAllSessions(): void {
+    for (const [userId] of this.store.getAllSessions()) {
+      this.store.clearSession(userId);
+    }
+  }
 }

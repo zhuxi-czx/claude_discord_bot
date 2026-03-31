@@ -128,6 +128,9 @@ export class BotController {
       if (text === "/reset") {
         this.sessions.clearSession(userId);
       }
+      if (text.startsWith("/project ") && text.slice(9).trim() !== "") {
+        this.sessions.clearAllSessions();
+      }
       return;
     }
 
@@ -189,7 +192,7 @@ export class BotController {
           const result = value;
 
           if (result.is_error) {
-            await msg.reply(`Error: ${result.result}`);
+            await msg.reply(`Error: ${result.result || "Claude returned an error with no details. Check terminal logs."}`);
             return result;
           }
 
@@ -280,10 +283,10 @@ export class BotController {
       const dir = text.slice(9).trim();
       if (dir === "clear") {
         this.bridge.config.workingDir = undefined;
-        return "Project directory cleared. Claude will run in bot's working directory.";
+        return "Project directory cleared. Claude will run in bot's working directory.\nAll sessions cleared.";
       }
       this.bridge.config.workingDir = dir;
-      return `Project directory set to: ${dir}`;
+      return `Project directory set to: ${dir}\nAll sessions cleared — conversations will start fresh in the new project.`;
     }
 
     if (text === "/system") {
